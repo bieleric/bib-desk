@@ -1,5 +1,10 @@
 export default {
     BOOKS: 'books',
     CUSTOMERS: 'customers',
-    RENTAL: 'rental'
+    RENTAL: 'rental',
+    ASCENDING: 'ascending',
+    DESCENDING: 'descending',
+    AUTHOR: 'author',
+    ID: 'id',
+    TITLE: 'title',
 }

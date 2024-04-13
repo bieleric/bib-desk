@@ -1,12 +1,28 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue';
 import NavigationBar from './components/NavigationBar.vue';
+import BookView from './views/bookView.vue';
+import constants from './helpers/constants';
+import { useNavigationStore } from './stores/navigationStore';
+import { useBookStore } from './stores/bookStore';
+import { fetchAllBooks } from './services/databaseService';
+
+const navigationStore = useNavigationStore();
+const bookStore = useBookStore();
+
+/* load data on initialization */
+onMounted(async () => {
+  const allBooks = await fetchAllBooks();
+  bookStore.setupBookStore(allBooks);
+});
+
+
 </script>
 
 <template>
   <NavigationBar />
   <Suspense>
-    <HelloWorld />
+    <BookView v-if="navigationStore.getCurrentTab===constants.BOOKS" />
   </Suspense>
 </template>
 
