@@ -6,12 +6,13 @@
     import constants from '../helpers/constants';
 
     const bookStore = useBookStore();
+
 </script>
 
 <template>
     <div class="headerContainer mt-4 p-3 grid grid-cols-8 gap-2">
         <SearchBar class="col-span-6" />
-        <button class="col-span-2 bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded">Neuer Eintrag</button>
+        <router-link to="/newBookEntry" class="col-span-2 bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-4 text-center rounded">Neuer Eintrag</router-link>
     </div>
     <div class="gridContainer p-4">
         <div class="py-3 font-bold">

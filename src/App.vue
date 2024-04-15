@@ -21,9 +21,7 @@ onMounted(async () => {
 
 <template>
   <NavigationBar />
-  <Suspense>
-    <BookView v-if="navigationStore.getCurrentTab===constants.BOOKS" />
-  </Suspense>
+  <router-view></router-view>
 </template>
 
 <style scoped>
