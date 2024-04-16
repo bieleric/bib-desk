@@ -4,11 +4,15 @@ import constants from '../helpers/constants'
 export const useBookStore = defineStore('bookStore', {
   state: () => ({
     books: [],
-    filteredBooks: []
+    filteredBooks: [],
+    bookToEdit: {},
+    action: null
   }),
   getters: {
     getAllBooks: (state) => state.books,
-    getFilteredBooks: (state) => state.filteredBooks
+    getFilteredBooks: (state) => state.filteredBooks,
+    getBookToEdit: (state) => state.bookToEdit,
+    getAction: (state) => state.action
   },
   actions: {
     setupBookStore(books) {
@@ -19,6 +23,19 @@ export const useBookStore = defineStore('bookStore', {
     },
     addBook(value) {
       this.books.push(value);
+      this.filteredBooks = this.books.slice(0);
+    },
+    editBook(value) {
+      let bookToEdit = this.books.find(book => book.Buchnummer === value.oldBookID);
+      if (bookToEdit) {
+        bookToEdit.Buchnummer = value.bookID;
+        bookToEdit.Titel = value.title;
+        bookToEdit.Autor = value.author;
+      }
+      this.filteredBooks = this.books.slice(0);
+    },
+    deleteBook(bookID) {
+      this.books = this.books.filter(book => book.Buchnummer !== bookID);
       this.filteredBooks = this.books.slice(0);
     },
     sortBooks(category) {
@@ -57,6 +74,20 @@ export const useBookStore = defineStore('bookStore', {
     },
     resetFilteredBooks() {
       this.filteredBooks = this.books;
+    },
+    setBookToDelete(value) {
+      this.bookToDelete = value;
+    },
+    setAction(value, ...args) {
+      this.action = value;
+
+      if(args) {
+        this.bookToEdit = {
+          bookID: args[0],
+          title: args[1],
+          author: args[2]
+        }
+      }
     }
   }
 })

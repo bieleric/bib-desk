@@ -6,13 +6,12 @@
     import constants from '../helpers/constants';
 
     const bookStore = useBookStore();
-
 </script>
 
 <template>
     <div class="headerContainer mt-4 p-3 grid grid-cols-8 gap-2">
         <SearchBar class="col-span-6" />
-        <router-link to="/newBookEntry" class="col-span-2 bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-4 text-center rounded">Neuer Eintrag</router-link>
+        <router-link to="/bookAction" @click="bookStore.setAction(constants.ACTIONS.ADD)" class="col-span-2 bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-4 text-center rounded">Neuer Eintrag</router-link>
     </div>
     <div class="gridContainer p-4">
         <div class="py-3 font-bold">
@@ -29,7 +28,7 @@
                 <li class="col-span-3">{{ book.Titel }}</li>
                 <li class="col-span-2">{{ book.Autor }}</li>
                 <li class="col-span-1 text-center">
-                    <FontAwesomeIcon :icon="faPenToSquare"></FontAwesomeIcon> <FontAwesomeIcon :icon="faTrashCan"></FontAwesomeIcon>
+                    <router-link to="/bookAction" @click="bookStore.setAction(constants.ACTIONS.EDIT, book.Buchnummer, book.Titel, book.Autor)"><FontAwesomeIcon class="mr-2 cursor-pointer" :icon="faPenToSquare"></FontAwesomeIcon></router-link>
                 </li>
             </ul>
             <hr />

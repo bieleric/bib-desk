@@ -1,4 +1,4 @@
-import { app, ipcMain } from 'electron';
+import { ipcMain } from 'electron';
 import sqlite3 from 'sqlite3';
 import databaseConfig from './database.config.js';
 

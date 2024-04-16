@@ -27,3 +27,38 @@ export const addNewBook = async (bookID, title, author) => {
         return error;
     }
 };
+
+export const editBook = async (oldBookID, bookID, title, author) => {
+    try {
+        const query = 'UPDATE Buch SET Buchnummer = "' + bookID + '", Titel = "' + title + '", Autor = "' + author + '" WHERE Buchnummer = "' + oldBookID + '"';
+        const result = await ipcRenderer.invoke('execute-query', query);
+
+        const bookStore = useBookStore();
+        bookStore.editBook({
+            oldBookID,
+            bookID,
+            title,
+            author
+        });
+
+        return result;
+    } catch (error) {
+        console.error(error);
+        return error;
+    }
+};
+
+export const deleteBook = async (bookID) => {
+    try {
+        const query = 'DELETE FROM Buch WHERE Buchnummer = "' + bookID + '"';
+        const result = await ipcRenderer.invoke('execute-query', query);
+
+        const bookStore = useBookStore();
+        bookStore.deleteBook(bookID);
+
+        return result;
+    } catch (error) {
+        console.error(error);
+        return error;
+    }
+};

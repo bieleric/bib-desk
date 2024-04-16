@@ -7,4 +7,8 @@ export default {
     AUTHOR: 'author',
     ID: 'id',
     TITLE: 'title',
+    ACTIONS: {
+        EDIT: 'edit',
+        ADD: 'add',
+    }
 }

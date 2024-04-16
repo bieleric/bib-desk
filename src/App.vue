@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUpdated } from 'vue';
+import { onMounted } from 'vue';
 import NavigationBar from './components/NavigationBar.vue';
 import { useBookStore } from './stores/bookStore';
 import { fetchAllBooks } from './services/databaseService';
