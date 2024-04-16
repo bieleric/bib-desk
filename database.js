@@ -16,12 +16,12 @@ export const setupDatabase = () => {
 
     ipcMain.handle('execute-query', async (event, query) => {
         return new Promise((resolve, reject) => {
-            db.all(query, (err, results) => {
+            db.all(query, (err, rows) => {
                 if (err) {
                     reject(err);
                 } 
                 else {
-                    resolve(results);
+                    resolve(rows);
                 }
             });
         });

@@ -19,6 +19,7 @@ export const useBookStore = defineStore('bookStore', {
     },
     addBook(value) {
       this.books.push(value);
+      this.filteredBooks = this.books.slice(0);
     },
     sortBooks(category) {
       if(category === constants.ID) {
