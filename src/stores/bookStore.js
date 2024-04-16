@@ -75,9 +75,11 @@ export const useBookStore = defineStore('bookStore', {
       this.filteredBooks = this.books.filter((entry) => {
         return entry.Titel.toLowerCase().includes(value.toLowerCase()) || entry.Buchnummer.toLowerCase().includes(value.toLowerCase()) || entry.Autor.toLowerCase().includes(value.toLowerCase())
       });
+      this.sortBooks(constants.ID)
     },
     resetFilteredBooks() {
       this.filteredBooks = this.books;
+      this.sortBooks(constants.ID)
     },
     setBookToDelete(value) {
       this.bookToDelete = value;
