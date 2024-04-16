@@ -20,10 +20,12 @@ export const useBookStore = defineStore('bookStore', {
             this.books.push(book);
         });
         this.filteredBooks = this.books.slice(0);
+        this.sortBooks(constants.ID)
     },
     addBook(value) {
       this.books.push(value);
       this.filteredBooks = this.books.slice(0);
+      this.sortBooks(constants.ID)
     },
     editBook(value) {
       let bookToEdit = this.books.find(book => book.Buchnummer === value.oldBookID);
@@ -33,10 +35,12 @@ export const useBookStore = defineStore('bookStore', {
         bookToEdit.Autor = value.author;
       }
       this.filteredBooks = this.books.slice(0);
+      this.sortBooks(constants.ID)
     },
     deleteBook(bookID) {
       this.books = this.books.filter(book => book.Buchnummer !== bookID);
       this.filteredBooks = this.books.slice(0);
+      this.sortBooks(constants.ID)
     },
     sortBooks(category) {
       if(category === constants.ID) {

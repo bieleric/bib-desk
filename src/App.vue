@@ -13,11 +13,14 @@ onMounted(async () => {
 });
 </script>
 
-<template>
+<template id="app">
   <NavigationBar />
   <router-view></router-view>
 </template>
 
 <style scoped>
-
+#app {
+  height: 100vh;
+  overflow: hidden;
+}
 </style>
