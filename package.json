@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "main": "main.js",
+  "build": {
+    
+  },
   "scripts": {
     "start:electron": "electron .",
     "dev": "vite",
