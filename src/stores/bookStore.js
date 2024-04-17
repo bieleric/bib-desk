@@ -81,9 +81,6 @@ export const useBookStore = defineStore('bookStore', {
       this.filteredBooks = this.books;
       this.sortBooks(constants.ID)
     },
-    setBookToDelete(value) {
-      this.bookToDelete = value;
-    },
     setAction(value, ...args) {
       this.action = value;
 
