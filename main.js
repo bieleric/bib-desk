@@ -22,8 +22,8 @@ const createWindow = () => {
     },
   });
 
-  mainWindow.loadURL('http://localhost:5173/');
-  //mainWindow.loadFile('dist/index.html');
+  // mainWindow.loadURL('http://localhost:5173/');
+  mainWindow.loadFile('dist/vue/index.html');
 
   // opens devTools
   // mainWindow.webContents.openDevTools();

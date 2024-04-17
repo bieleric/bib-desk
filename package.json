@@ -1,14 +1,36 @@
 {
   "name": "bib-desk",
+  "productName": "Bib-Desk",
+  "author": "Eric Biele",
+  "copyright": "Eric Biele",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "main": "main.js",
   "build": {
-    
+    "appId": "com.bieleric.bibdesk",
+    "win": {
+      "target": [
+        "zip",
+        "msi"
+      ]
+    },
+    "directories": {
+      "output": "dist/electron"
+    },
+    "extraResources": [
+      {
+        "from": "./nordfiwa_dev.db",
+        "to": ".",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
   },
   "scripts": {
     "start:electron": "electron .",
+    "package": "electron-builder",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -20,7 +42,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "pinia": "^2.1.7",
-    "sqlite3": "^5.1.7",
+    "sqlite3": "5.1.6",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

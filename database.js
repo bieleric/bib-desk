@@ -3,7 +3,7 @@ import sqlite3 from 'sqlite3';
 import databaseConfig from './database.config.js';
 
 export const setupDatabase = () => {
-    const databasePath = databaseConfig.DATABASE_PATH;
+    const databasePath = databaseConfig.PROD_DATABASE_PATH_MACOS;
 
     let db = new sqlite3.Database(databasePath, (err) => {
         if (err) {

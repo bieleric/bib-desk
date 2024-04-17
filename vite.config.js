@@ -7,5 +7,8 @@ export default defineConfig({
     allowNodeBuiltins: ['__dirname'],
   },
   plugins: [vue()],
-  base: "./"
+  base: "./",
+  build: {
+    outDir: "dist/vue"
+  }
 })
