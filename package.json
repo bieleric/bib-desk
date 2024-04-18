@@ -10,10 +10,12 @@
   "build": {
     "appId": "com.bieleric.bibdesk",
     "win": {
-      "target": [
-        "zip",
-        "msi"
-      ]
+      "target": "nsis",
+      "icon": "./public/bib-desk-icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "./public/bib-desk-icon.icns"
     },
     "directories": {
       "output": "dist/electron"
@@ -29,10 +31,11 @@
     ]
   },
   "scripts": {
-    "start:electron": "electron .",
-    "package": "electron-builder",
-    "dev": "vite",
-    "build": "vite build",
+    "electron:dev": "NODE_ENV=development electron .",
+    "vite:dev": "NODE_ENV=development vite",
+    "vite:build": "vite build",
+    "package:mac": "OS_ENV=mac NODE_ENV=production vite build && electron-builder --mac",
+    "package:win": "OS_ENV=win NODE_ENV=production vite build && electron-builder --win",
     "preview": "vite preview"
   },
   "dependencies": {

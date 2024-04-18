@@ -7,12 +7,8 @@ import { setupDatabase } from './database.js'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-let mainWindow;
-
-setupDatabase();
-
 const createWindow = () => {
-  mainWindow = new BrowserWindow({
+  let mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
     webPreferences: {
@@ -22,14 +18,19 @@ const createWindow = () => {
     },
   });
 
-  // mainWindow.loadURL('http://localhost:5173/');
-  mainWindow.loadFile('dist/vue/index.html');
+  if(process.env.NODE_ENV === 'development') {
+    mainWindow.loadURL('http://localhost:5173/');
 
-  // opens devTools
-  // mainWindow.webContents.openDevTools();
+    // opens devTools
+    mainWindow.webContents.openDevTools();
+  }
+  else {
+    mainWindow.loadFile('dist/vue/index.html');
+  }
 }
 
 app.whenReady().then(() => {
+  setupDatabase();
   createWindow();
 
   app.on('window-all-closed', () => {
