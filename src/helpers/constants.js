@@ -6,6 +6,8 @@ export default {
     DESCENDING: 'descending',
     AUTHOR: 'author',
     ID: 'id',
+    FIRSTNAME: 'firstname',
+    LASTNAME: 'lastname',
     TITLE: 'title',
     ACTIONS: {
         EDIT: 'edit',

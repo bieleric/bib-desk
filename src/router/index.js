@@ -2,7 +2,7 @@ import { createMemoryHistory, createRouter } from 'vue-router';
 import bookView from '../views/bookView.vue';
 import customerView from '../views/customerView.vue';
 import rentalView from '../views/rentalView.vue';
-import BookFormView from '../views/BookFormView.vue';
+import FormView from '../views/FormView.vue';
 
 const routes = [
     { 
@@ -19,7 +19,11 @@ const routes = [
     },
     { 
         path: '/bookAction', 
-        component: BookFormView
+        component: FormView
+    },
+    { 
+        path: '/customerAction', 
+        component: FormView
     },
 ];
 

@@ -10,10 +10,10 @@ export const setupDatabase = () => {
     }
     else {
         //if(process.env.OS_ENV === 'mac') {
-            databasePath = databaseConfig.PROD_DATABASE_PATH_MACOS;
+        // databasePath = databaseConfig.PROD_DATABASE_PATH_MACOS;
         //}
         //else if(process.env.OS_ENV === 'win') {
-        //    databasePath = databaseConfig.PROD_DATABASE_PATH_WIN;
+        databasePath = databaseConfig.PROD_DATABASE_PATH_WIN;
         //}
     }
 
