@@ -25,6 +25,10 @@ const routes = [
         path: '/customerAction', 
         component: FormView
     },
+    { 
+        path: '/rentalAction', 
+        component: FormView
+    },
 ];
 
 const router = createRouter({

@@ -11,6 +11,9 @@ export const useBookStore = defineStore('bookStore', {
   getters: {
     getAllBooks: (state) => state.books,
     getFilteredBooks: (state) => state.filteredBooks,
+    getBookByBookID: (state) => (bookID) => {
+      return state.books.find((book) => book.Buchnummer === bookID)
+    },
     getBookToEdit: (state) => state.bookToEdit,
     getAction: (state) => state.action
   },

@@ -3,10 +3,12 @@ import { onMounted } from 'vue';
 import NavigationBar from './components/NavigationBar.vue';
 import { useBookStore } from './stores/bookStore';
 import { useCustomerStore } from './stores/customerStore';
-import { fetchAllBooks, fetchAllCustomers } from './services/databaseService';
+import { fetchAllBooks, fetchAllCustomers, fetchAllRentals } from './services/databaseService';
+import { useRentalStore } from './stores/rentalStore';
 
 const bookStore = useBookStore();
 const customerStore = useCustomerStore();
+const rentalStore = useRentalStore();
 
 /* load data on initialization */
 onMounted(async () => {
@@ -15,6 +17,9 @@ onMounted(async () => {
 
   const allCustomers = await fetchAllCustomers();
   customerStore.setupCustomerStore(allCustomers);
+
+  const allRentals = await fetchAllRentals();
+  rentalStore.setupRentalStore(allRentals);
 });
 </script>
 

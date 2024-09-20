@@ -3,11 +3,13 @@
     import { useNavigationStore } from '../stores/navigationStore';
     import { useBookStore } from '../stores/bookStore';
     import { useCustomerStore } from '../stores/customerStore';
+    import { useRentalStore } from '../stores/rentalStore';
     import constants from '../helpers/constants';
 
     const navigationStore = useNavigationStore();
     const bookStore = useBookStore();
     const customerStore = useCustomerStore();
+    const rentalStore = useRentalStore();
 
     const state = reactive({
         searchString: '',
@@ -19,6 +21,9 @@
         }
         else if(navigationStore.getCurrentTab === constants.CUSTOMERS) {
             return 'Suche Kunden ID, Name ...';
+        }
+        else if(navigationStore.getCurrentTab === constants.RENTAL) {
+            return 'Suche Name, Buchtitel ...';
         }
 
         return 'Suche ...';
@@ -33,6 +38,10 @@
             customerStore.resetFilteredCustomers(); 
             state.searchString = '';
         }
+        else if(navigationStore.getCurrentTab === constants.RENTAL) {
+            rentalStore.resetFilteredRentals(); 
+            state.searchString = '';
+        }
     }
 
     const filter = () => {
@@ -41,6 +50,9 @@
         }
         else if(navigationStore.getCurrentTab === constants.CUSTOMERS) {
             customerStore.filterCustomers(state.searchString);
+        }
+        else if(navigationStore.getCurrentTab === constants.RENTAL) {
+            rentalStore.filterRentals(state.searchString);
         }
     }
 

@@ -11,6 +11,9 @@ export const useCustomerStore = defineStore('customerStore', {
   getters: {
     getAllCustomers: (state) => state.customers,
     getFilteredCustomers: (state) => state.filteredCustomers,
+    getCustomerByCustomerID: (state) => (customerID) => {
+      return state.customers.find((customer) => customer.KunID === customerID)
+    },
     getCustomerToEdit: (state) => state.customerToEdit,
     getLatestCustomer: (state) => state.filteredCustomers.at(-1),
     getAction: (state) => state.action

@@ -5,7 +5,9 @@
     import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
     import BookForm from '../components/BookForm.vue';
     import CustomerForm from '../components/CustomerForm.vue';
+    import RentalForm from '../components/RentalForm.vue';
     import constants from '../helpers/constants';
+
 
     const router = useRouter();
     const navigationStore = useNavigationStore();
@@ -22,6 +24,7 @@
     <div class="formContainer">
         <BookForm v-if="navigationStore.getCurrentTab === constants.BOOKS" />
         <CustomerForm v-if="navigationStore.getCurrentTab === constants.CUSTOMERS" />
+        <RentalForm v-if="navigationStore.getCurrentTab === constants.RENTAL" />
     </div>
 </template>
 

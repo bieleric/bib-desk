@@ -9,6 +9,8 @@ export default {
     FIRSTNAME: 'firstname',
     LASTNAME: 'lastname',
     TITLE: 'title',
+    RENTAL_DATE: 'rental_date',
+    RETURN_DATE: 'return_date',
     ACTIONS: {
         EDIT: 'edit',
         ADD: 'add',
