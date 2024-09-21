@@ -11,7 +11,7 @@
 
     const kunID = computed(() => {
         const latestCustomer = customerStore.getLatestCustomer;
-        const idSuggestionNumber = parseInt(latestCustomer.KunID, 10) + 1;
+        const idSuggestionNumber = latestCustomer ? parseInt(latestCustomer.KunID, 10) + 1 : 1;
         const idSuggestion = idSuggestionNumber.toString().padStart(4, '0');
         return customerStore.getAction === constants.ACTIONS.EDIT ? customerStore.getCustomerToEdit.kunID : idSuggestion;
     });
